@@ -6,8 +6,12 @@
   <employees-list employees-list="homePageVm.employees" search-input="homePageVm.searchInput"></employees-list>
 
   <div class="c-dashboard__footer">
-    <button class="c-button">
+    <button class="c-button"
+            ng-click="homePageVm.handleLoadMoreEvent()"
+            ng-hide="homePageVm.currentPage === homePageVm.totalPages"
+            ng-disabled="homePageVm.isLoading">
       Load More
+      <div class="c-loader" ng-hide="!homePageVm.isLoading"></div>
     </button>
   </div>
 </div>
