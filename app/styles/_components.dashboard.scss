@@ -41,6 +41,18 @@
   width: 760px;
 }
 
+.c-chart__tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  align-items: center;
+  background-color: #172236;
+  color: #e5e9f1;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
 .c-button {
   height: 40px;
   background-color: #0099ff;
@@ -48,4 +60,54 @@
   min-width: 120px;
   padding: 0 16px;
   border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.c-search {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+
+  &__input {
+    border-radius: 4px;
+    padding: 8px;
+  }
+}
+
+.c-loader {
+  position: absolute;
+  inset: 0;
+  background-color: #e5e9f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    border: 6px solid #0099ff;
+    border-radius: 100%;
+  }
+
+  &::before {
+    animation: spin 0.75s infinite linear reverse;
+    border-left-color: transparent;
+    height: 18px;
+    width: 18px;
+  }
+
+  &::after {
+    animation: spin 1.5s infinite linear;
+    border-right-color: transparent;
+    height: 32px;
+    width: 32px;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
